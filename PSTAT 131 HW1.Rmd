@@ -1,0 +1,54 @@
+---
+title: "PSTAT 131 Homework 1"
+author: "Brett Goldman"
+date: "9/28/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x<-3
+```
+
+# Question 1
+## Define supervised and unsupervised learning. What are the difference(s) between them?
+From the lecture, we know that supervised learning is when the response variable acts as a supervisor. The model is essentially given the correct answer to learn from in order to learn and improve itself. On the other hand, unsupervised learning is when the response variable is unknown to the model. The model has to learn from its mistakes without knowing what the truth looks like. The key difference between the two is the knowledge of the response variable in supervised learning, and the lack thereof in unsupervised learning.
+
+# Question 2
+## Explain the difference between a regression model and a classification model, specifically in the context of machine learning.
+From the lecture, simply put, a regression model is one where the response is quantitative and a classification model is one where the response is qualitative.
+
+# Question 3
+## Name two commonly used metrics for regression ML problems. Name two commonly used metrics for classification ML problems.
+Two commonly used metrics for regression ML problems
+
+# Question 4
+## As discussed, statistical models can be used for different purposes. These purposes can generally be classified into the following three categories. Provide a brief description of each.
+
+### Descriptive models:
+Descriptive models choose a model to "best visually emphasize a trend in data" (from lecture). An example of this that we went over in lecture is a trend line on a scatterplot to show the direction that a response variable goes as the predictor increases or decreases.
+
+### Inferential models:
+Inferential models decide which predictors are significant to the response. A lot of this is testing claims that Predictor A has a greater impact on the response than Predictor B.
+
+### Predictive models:
+Predictive models try to predict a response variable with very little error. They don't care about testing claims like an inferential model. They just want to get an accurate prediction of the response.
+
+# Question 5
+## Predictive models are frequently used in machine learning, and they can usually be described as either mechanistic or empirically-driven. Answer the following questions.
+
+### Define mechanistic. Define empirically-driven. How do these model types differ? How are they similar?
+Mechanistic models make assumptions to predict the outcome. These assumptions are based on some sort of theory.
+On the other hand, empirically-driven models don't make assumptions or theories to predict the outcome. They rely solely on observations to create their model.
+
+These model types differ in whether they make assumptions. Mechanistic models do make assumptions, which means that there is less of a need for as many observations. Empirically-driven models do not make assumptions, which means that they need a large number of observations to be accurate.
+
+These models are similar in the sense that they can both be used to predict the same things. If you want to know what time the sun will rise, you can either use the theories of science and the Earth's rotation (mechanistic) or you can use the trends of the daily sunrises to tell when the next one will come (empirically-driven).
+
+### In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.
+From my perspective, I would say that an empirically-driven model is easier to understand. If there are a large number of observation and a trend clearly develops, the model should be easy to create and understand. For a mechanistic model, you have to deal with some sort of theory in a field you may not be comfortable in.
+
+### In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.
