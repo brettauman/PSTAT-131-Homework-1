@@ -9,11 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-x<-3
-```
-
-# Question 1
+# Maching Learning Main Ideas: Question 1
 ## Define supervised and unsupervised learning. What are the difference(s) between them?
 From the lecture, we know that supervised learning is when the response variable acts as a supervisor. The model is essentially given the correct answer to learn from in order to learn and improve itself. On the other hand, unsupervised learning is when the response variable is unknown to the model. The model has to learn from its mistakes without knowing what the truth looks like. The key difference between the two is the knowledge of the response variable in supervised learning, and the lack thereof in unsupervised learning.
 
@@ -54,7 +50,7 @@ From my perspective, I would say that an empirically-driven model is easier to u
 
 ### Describe how the bias-variance tradeoff is related to the use of mechanistic or empirically-driven models.
 
-
+Bias and variance have an inverse relationship, so if you increase bias in your model, you decrease variance and vice-versa. If you decrease variance too much, your model will not be flexible enough. However, if you increase variance too much, your model could be too flexible, where it becomes tough to interpret. There is a middle ground there between flexibility and interpretability. This tradeoff is more often seen in mechanistic models, as the theoretical function you are testing can be impacted by differing bias and variance.
 
 # Question 6:
 
@@ -69,3 +65,65 @@ From my perspective, I would say that an empirically-driven model is easier to u
 1) In this case, a predictive model is best. We are simply looking to predict the likelihood that they will vote for a candidate based on a variety of predictors. We don't have any theories to test about what factors impact that probability more than others. 
 
 2) In this case, an inferential model is best. We are testing the theory that a voter's support changes if they have had personal contact with the candidate. We're not trying to predict a singular outcome like in the first question, instead we're testing one variable against another.
+
+# Exploratory Data Analysis: Exercise 1:
+```{r}
+#loading in packages
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+ggplot(mpg, aes(x=hwy)) + geom_histogram(binwidth=2, color="black", fill="white") + 
+  labs(title='Histogram of HWY MPG', x='HWY MPG', y='Count')
+```
+
+I notice that there is a large peak at about 26 MPG and a smaller peak at about 16 MPG. From personal knowledge, this makes sense because 26 makes sense for most sedans and 16 makes sense for larger vehicles.There do appear to be sparse values over 40, which would be your more rare fuel-efficient and hybrid vehicles.
+
+## Exercise 2:
+```{r}
+ggplot(mpg, aes(x=hwy, y=cty)) + geom_point() + 
+  labs(title="Scatterplot of Highway vs City MPG", x="Highway MPG", y='City MPG')
+```
+
+There does seem to be a proportional relationship between hwy and cty. This means that as the highway MPG increases, the city MPG also increases. We can tell this relationship because there is a noticeable upward-pointing line from bottom left to top right.
+
+## Exercise 3:
+```{r}
+ggplot(mpg, aes(x=reorder(manufacturer, manufacturer, function(x)-length(x)))) + geom_bar() + 
+  labs(title="Bar Plot of Counts for Each Car Manufacturer", x="Manufacturer", y="count") + coord_flip()
+```
+I used https://stackoverflow.com/questions/5208679/order-bars-in-ggplot2-bar-graph to help me with the ordering part of this problem, as I had never learned how to reorder a barplot in ggplot before now.
+
+We can see that Dodge produced the most cars, and Lincoln produced the least cars.
+
+## Exercise 4:
+```{r}
+ggplot(mpg, aes(x=hwy, group=cyl, y=cyl)) + geom_boxplot() + 
+  labs(title="Boxplot of Highway MPG, Grouped by Cylinders", x="Highway MPG", y="Number of Cylinders")
+```
+
+I do see a pattern, as it appears there is an inverse relationship between Highway MPG and number of Cylinders. As the number of cylinders decrease, the median HWY MPG tends to increase. 
+
+```{r}
+install.packages("corrplot")
+library(corrplot)
+```
+
+```{r}
+mpgnumeric<-mpg[c('displ', 'year', 'cyl', 'cty', 'hwy')]
+corrmpg<-corrplot(cor(mpgnumeric), method='square', type='lower')
+corrmpg
+```
+
+The variables that appear to be significantly positively correlated with each other are: cylinders/displacement and city MPG/highway MPG.
+
+The variables that appear to be significantly negatively correlated with each other are: city MPG/displacement, highway MPG/displacement, cylinders/city MPG, and cylinders/highway MPG.
+
+These negative relationships make sense, as a higher number of cylinders and engine displacement typically indicate gas guzzling cars with worse MPG. 
+
+The cylinders and engine displacement being positively correlated makes sense too, as those are both indicators of bigger cars.
+
+Finally, both MPGs being positively correlated makes sense. If a car is fuel efficient in one area, it's most likely fuel efficient in the other.
+
+I'm very surprised that there's no correlation between year and city/highway MPG. You would think MPG would improve over the years, but that does not seem to be the case in this sample.
