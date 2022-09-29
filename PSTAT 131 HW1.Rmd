@@ -35,20 +35,37 @@ Descriptive models choose a model to "best visually emphasize a trend in data" (
 Inferential models decide which predictors are significant to the response. A lot of this is testing claims that Predictor A has a greater impact on the response than Predictor B.
 
 ### Predictive models:
-Predictive models try to predict a response variable with very little error. They don't care about testing claims like an inferential model. They just want to get an accurate prediction of the response.
+Predictive models try to predict a response variable with minimal error. They don't care about testing which predictor(s) is significant like an inferential model. They just want to get an accurate prediction of the response.
 
 # Question 5
 ## Predictive models are frequently used in machine learning, and they can usually be described as either mechanistic or empirically-driven. Answer the following questions.
 
 ### Define mechanistic. Define empirically-driven. How do these model types differ? How are they similar?
-Mechanistic models make assumptions to predict the outcome. These assumptions are based on some sort of theory.
+Mechanistic models make assumptions to predict the outcome. These assumptions are based on some sort of theory. They use a function to assume some sort of relationship between the predictors and response.
+
 On the other hand, empirically-driven models don't make assumptions or theories to predict the outcome. They rely solely on observations to create their model.
 
 These model types differ in whether they make assumptions. Mechanistic models do make assumptions, which means that there is less of a need for as many observations. Empirically-driven models do not make assumptions, which means that they need a large number of observations to be accurate.
 
-These models are similar in the sense that they can both be used to predict the same things. If you want to know what time the sun will rise, you can either use the theories of science and the Earth's rotation (mechanistic) or you can use the trends of the daily sunrises to tell when the next one will come (empirically-driven).
+These models are similar in the sense that they can potentially both suffer from overfitting. They can both become too accurate to the random noise in the model, which is bad because that random noise varies from case to case.
 
 ### In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.
 From my perspective, I would say that an empirically-driven model is easier to understand. If there are a large number of observation and a trend clearly develops, the model should be easy to create and understand. For a mechanistic model, you have to deal with some sort of theory in a field you may not be comfortable in.
 
-### In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.
+### Describe how the bias-variance tradeoff is related to the use of mechanistic or empirically-driven models.
+
+
+
+# Question 6:
+
+## A political candidate’s campaign has collected some detailed voter history data from their constituents. The campaign is interested in two questions:
+
+### 1) Given a voter’s profile/data, how likely is it that they will vote in favor of the candidate?
+
+### 2) How would a voter’s likelihood of support for the candidate change if they had personal contact with the candidate?
+
+## Classify each question as either predictive or inferential. Explain your reasoning for each.
+
+1) In this case, a predictive model is best. We are simply looking to predict the likelihood that they will vote for a candidate based on a variety of predictors. We don't have any theories to test about what factors impact that probability more than others. 
+
+2) In this case, an inferential model is best. We are testing the theory that a voter's support changes if they have had personal contact with the candidate. We're not trying to predict a singular outcome like in the first question, instead we're testing one variable against another.
