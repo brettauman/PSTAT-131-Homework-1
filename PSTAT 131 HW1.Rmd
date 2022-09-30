@@ -105,6 +105,7 @@ ggplot(mpg, aes(x=hwy, group=cyl, y=cyl)) + geom_boxplot() +
 
 I do see a pattern, as it appears there is an inverse relationship between Highway MPG and number of Cylinders. As the number of cylinders decrease, the median HWY MPG tends to increase. 
 
+## Exercise 5:
 ```{r}
 install.packages("corrplot")
 library(corrplot)
