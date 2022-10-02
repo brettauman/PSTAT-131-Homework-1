@@ -19,7 +19,7 @@ From the lecture, simply put, a regression model is one where the response is qu
 
 # Question 3
 ## Name two commonly used metrics for regression ML problems. Name two commonly used metrics for classification ML problems.
-Two commonly used metrics for regression ML problems
+Two commonly used metrics for regression ML problems are Quality of Fit (MSE) and Bias-Variance tradeoff. Two commonly used metrics for classification ML problems are Bayes Classifier and K-Nearest Neighbors Classifier.
 
 # Question 4
 ## As discussed, statistical models can be used for different purposes. These purposes can generally be classified into the following three categories. Provide a brief description of each.
